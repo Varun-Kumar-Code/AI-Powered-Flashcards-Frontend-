@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Powered Flashcards</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="icon" type="image/svg" href="letter-f.png">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.1.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Flashcards AI</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                    <li class="nav-item"><a class="nav-link" href="signup.html">User Account</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Theme Toggle Button -->
+    <button id="theme-toggle">
+        <span id="theme-icon">☀️</span> Mode
+    </button>
+    <div class="home container mt-5 text-center">
+        <h1 class="mb-4 text-primary">AI-Powered Flashcards</h1>
+        <div class="user-input-container card p-4 shadow-lg rounded bg-dark">
+            <textarea id="user-input" class="user-input form-control mb-3" placeholder="Enter a topic or text..."></textarea>
+            <button id="generate-btn" class="generate-btn btn btn-primary">Generate Flashcards <i class="fas fa-magic"></i></button>
+        </div>
+        
+        <!-- Container to display generated flashcards -->
+        <div id="flashcards-container" class="mt-4"></div>
+
+        <div class="categories mt-5">
+            <h2 class="text-secondary">Explore Subjects</h2>
+            <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 g-3">
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/c_mhWU-KxPdWhhJxbQVTvuI0q8cLHm-OIcPgFXCXcaQ/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTQy/NTc2NTgwL3Bob3Rv/L3Jlc2VhcmNoLXN0/dWRlbnQtc2NpZW50/aXN0LmpwZz9zPTYx/Mng2MTImdz0wJms9/MjAmYz1yMFNTem1y/b0M2czZmZUNKcWlW/Z0dCOVRBMEFEeVBS/eGozU2VuQ3FBQksw/PQ" class="card-img-top" alt="Science"><div class="card-body text-center">Science</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/ch6C2IfZOuNlcCtIQYLNvkOYWTaBY3NIYDnpRbjQiT0/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvOTA5/OTA4ODMwL3Bob3Rv/L21pY3Jvc2NvcGUt/d2l0aC1sYWItZ2xh/c3N3YXJlLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1wS2NS/QlN0MVpXTHJVa1R0/Y3VUZlZKUlJ1VU0t/V1UzR2Qzdzl0dTB2/LVBZPQ" class="card-img-top" alt="Herpetology"><div class="card-body text-center">Herpetology</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/gADeC7zGHhD77WpaU_5doJCrSpZpmfgzx7Ns30VpXYI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvMTcy/MzIwNDU1L3Bob3Rv/L3BhdGhvbG9neS1z/bGlkZS5qcGc_cz02/MTJ4NjEyJnc9MCZr/PTIwJmM9cGgzeUo5/UzhtMFZEN25kNU1F/YjY5SkZIQXJtX080/NThKRWNVTWJZcktQ/VT0" class="card-img-top" alt="Pathology"><div class="card-body text-center">Pathology</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/Rsqv1dCd33uCeYznku28WGrAXIDmxL-GWGa2DFLuYLY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA0LzMyLzUyLzkw/LzM2MF9GXzQzMjUy/OTAwM184UG9ZWGNK/RzNJTmNuSzFJTXFO/WDlYckFaSUN6MWFq/MC5qcGc" class="card-img-top" alt="Geology"><div class="card-body text-center">Geology</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/bjFZI78y2duMOgZiheZ_OeRiFSKSDKWHvJ5Ep6a0nTM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTEz/NzE0MTQ2MC9waG90/by9mb3JlbnNpYy1z/Y2llbmNlLmpwZz9z/PTYxMng2MTImdz0w/Jms9MjAmYz1UZDAt/MUJLU0stR1ZzTjBs/LTQyS2owMklKNDFi/RER3Njlfcy1oemhm/d04wPQ" class="card-img-top" alt="Forensic Science"><div class="card-body text-center">Forensic Science</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/sW1aR2cQ8QDBEHBeWKyYBmi6gTXSFTj4Q-Ln1yMpNmA/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAxLzAzLzc1LzU4/LzM2MF9GXzEwMzc1/NTg4NF8xdldmQVNr/a3ltWlJiWVBGQ2Vm/ODZZOUpJeXBMVE81/TC5qcGc" class="card-img-top" alt="Engineering"><div class="card-body text-center">Engineering</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/Um93fK7krPUisq1sqw6sfIKOm-cY-WRPEM5siHj0GnE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9haXJjcmFmdC1m/bGlnaHQtZGVja18y/MzY4NTQtMTU2NTIu/anBnP3NlbXQ9YWlz/X2h5YnJpZA" class="card-img-top" alt="Aviation"><div class="card-body text-center">Aviation</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/uMenKB_zIixl7wnWZiyWWK6m1cMWFWdvCckiOIl1RQ4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90NC5m/dGNkbi5uZXQvanBn/LzA4Lzk5LzU0LzYz/LzM2MF9GXzg5OTU0/NjMwMV9CSUtOUHYz/NVZIVHpTUzlnT3F4/M2djZ0JrMFU3VnN0/Ti5qcGc" class="card-img-top" alt="Chemical Engineering"><div class="card-body text-center">Chemical Engineering</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/qZ7QNGcUe3hOuGd5OiZKC6EYIux0V1EVsCoOGRU_z30/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNTg2/MDY2ODk4L3Bob3Rv/L3JlcG9ydGluZy10/by1jb250cmFjdG9y/LWF0LWNvbnN0cnVj/dGlvbi1zaXRlLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1u/U1FfUkt0UEotSjh2/WXFid0N2YWZtLXly/ckdVb2tva2IzVFI0/UVo1cDlNPQ" class="card-img-top" alt="Civil Engineering"><div class="card-body text-center">Civil Engineering</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/rKcVcOUe3RUjIjK6e5ygTqA5uJ_labprI7VWnR2nmi4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTg0/MzIxNjI1L3Bob3Rv/LzNkLWFyY2hpdGVj/dHVyZS1hYnN0cmFj/dC5qcGc_cz02MTJ4/NjEyJnc9MCZrPTIw/JmM9ZndNdGREcUdz/cF9pNFBKNFVQRDhu/YlZ4QnVqdlJQQWxG/bDZIbGtiN1pEZz0" class="card-img-top" alt="Architecture"><div class="card-body text-center">Architecture</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/NxiNocH3Z_-iYtHzeqTl-0VYXVxAFuDJDhEQsBzYk6E/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWcu/ZnJlZXBpay5jb20v/cHJlbWl1bS1waG90/by9rb3JlYW4tc3R5/bGUtYXJjaGl0ZWN0/dXJlLXNlb3VsLXNv/dXRoLWtvcmVhXzI1/ODM2MC01LmpwZz9z/ZW10PWFpc19oeWJy/aWQ" class="card-img-top" alt="Korean"><div class="card-body text-center">Korean</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://travel2next.com/wp-content/uploads/Indonesia-Landmarks-Borobudor.jpg" class="card-img-top" alt="Indonesian"><div class="card-body text-center">Indonesian</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/lFVSzgR14bDVOlfqKhwTWA25ZL6CHYO604WU2gy5StY/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNTI1/NDA5NDA1L3Bob3Rv/L3JlYXItdmlldy1v/Zi10ZWVuYWdlLXN0/dWRlbnRzLXJhaXNp/bmctaGFuZHMtaW4t/Y2xhc3Nyb29tLmpw/Zz9zPTYxMng2MTIm/dz0wJms9MjAmYz1p/YWVfdVRNNzd2SzNO/MUo2cTBaaTdrdmZP/VGpsaXJwMlA1TUlW/c3dieG1vPQ" class="card-img-top" alt="English"><div class="card-body text-center">English</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://media.istockphoto.com/id/1084045650/photo/question-do-you-speak-spanish-written-in-spanish.jpg?s=612x612&w=0&k=20&c=2Dzij-yB7ah2QSADXfBubOCPlReI-bFY2HiticocwzI=" class="card-img-top" alt="Spanish"><div class="card-body text-center">Spanish</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="Geometry & Trigonometry.jpeg" class="card-img-top" alt="Geometry & Trigonometry"><div class="card-body text-center">Geometry & Trigonometry</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/rexMcXwVX2F5s_-I0OIn8PCZLUfXA2qPyYTFbPJD5pI/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5pc3RvY2twaG90/by5jb20vaWQvNDcw/NDkzMzQxL3Bob3Rv/L21hdGgtcHJvYmxl/bXMuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPXpVNlpGNGZX/dGN3VHU1TW96c3lR/Y19BQUdza2tQWEh5/cnJvVTVmeGU5MVk9" class="card-img-top" alt="Algebra"><div class="card-body text-center">Algebra</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/OTOBsVx2_kZXSp70kYvo4Hr5ztzAMvlY4LVN5eujhgg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvNzkz/MzgzNDAvcGhvdG8v/Y2FsY3VsdXMtb24t/YmxhY2tib2FyZC5q/cGc_cz02MTJ4NjEy/Jnc9MCZrPTIwJmM9/VWQxVjBudEstaDNv/Rks4U0UtUXF5N21q/cE82S1BaSkgxY2U1/aVRSRFJ2OD0" class="card-img-top" alt="Calculus"><div class="card-body text-center">Calculus</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/UtqDw2EzzjyfjDVIDhEpJrG470NNaSrHTYEbjYDaaWw/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzAwLzE5Lzg3LzYy/LzM2MF9GXzE5ODc2/MjMxX2Vkb0RFcmhp/OTRFdjJNWDJidXdi/TjdRMEV5SFVieDc2/LmpwZw" class="card-img-top" alt="Statistics"><div class="card-body text-center">Statistics</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/zYvkuVqxZ-8A-Xj3jqGu6njdckyhSwcqyTnYBWRT9EM/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM4/NTk3MDIyMy9waG90/by9ncmVhdC1pZGVh/LW9mLWEtbWFya2V0/aW5nLXN0cmF0ZWd5/LXBsYW4tYXQtYS1j/cmVhdGl2ZS1vZmZp/Y2UuanBnP3M9NjEy/eDYxMiZ3PTAmaz0y/MCZjPTZ1cF9KOGVr/aFlJYkYzcWlVRW85/dDI4dThYLVVyRk5x/d3J5eVJoQmwzNXc9" class="card-img-top" alt="Marketing"><div class="card-body text-center">Marketing</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/G0QhL2SNdvOj00yR72LJUHy7fYkrHfk2agZFXMgOjVE/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzA5LzAzLzM4LzU4/LzM2MF9GXzkwMzM4/NTg3OV9xV2Rodks2/WE5tTHpTYmdBQnZP/enhhcG5pUm5uSGw3/dS5qcGc" class="card-img-top" alt="Microeconomics"><div class="card-body text-center">Microeconomics</div></div></div>
+                <div class="col"><div class="card shadow-sm"><img src="https://imgs.search.brave.com/XwPDssaZ_-OKbnbwhso1CloUKoWVur7ODPbBOoCfZyU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9tZWRp/YS5nZXR0eWltYWdl/cy5jb20vaWQvMTM1/ODkyNzQ2MS9waG90/by9jdXJyZW5jeS1h/bmQtZXhjaGFuZ2Ut/c3RvY2stY2hhcnQt/Zm9yLWZpbmFuY2Ut/YW5kLWVjb25vbXkt/ZGlzcGxheS5qcGc_/cz02MTJ4NjEyJnc9/MCZrPTIwJmM9dmtB/a3lIalM5elhRSkd3/OWVRWHJENGU3bnhH/VzR4SHMteTFRb3gt/OTJEQT0" class="card-img-top" alt="Finance"><div class="card-body text-center">Finance</div></div></div>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-light text-center py-3 mt-5">
+        <p>&copy; 2025 AI-Powered Flashcards. All rights reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
